@@ -5,6 +5,8 @@
 let numbers = document.getElementById("numbers");
 let numArr = [];
 let num = 0;
+let userNumArr = [];
+let userNum = 0;
 
 while (numArr.length<5) {
   let doppione = false;
@@ -25,4 +27,30 @@ while (numArr.length<5) {
 
 numbers.innerHTML += numArr;
 
-console.log(numArr);
+console.log("Numeri random: " + numArr);
+
+// Memory
+
+setTimeout(function() {
+
+  while (userNumArr.length<5) {
+    let doppione = false;
+    userNum = prompt("Quali erano i numeri?");  
+    console.log(userNum);
+  
+    for (let i=0; i<userNumArr.length; i++) {
+      if (userNum == userNumArr[i]) {
+        doppione = true;
+        alert("Non puoi inserire doppioni!");
+        console.log("Il numero " + userNum + " è un doppione, lo salto!");
+      }
+    } 
+  
+    if (doppione == false) {
+      userNumArr.push(userNum);
+    }
+  } 
+
+  console.log("Numeri inseriti dall'utente: " + userNumArr);
+
+}, 2000);
