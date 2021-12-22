@@ -25,11 +25,40 @@ body {
   text-align: center;
 }
 
-#container div {
+#text div {
   margin: 50px auto;
+  transform: translateY(50px);
+  animation: scomparsa 0.5s linear forwards;
+  animation-delay: 4.5s;
 }
 
 #numbers {
   font-size: 4rem;
   font-weight: bold;
+}
+
+#memory {
+  opacity: 0;
+  transform: translateY(-100px) !important;
+  animation: comparsa 0.5s linear forwards !important;
+  animation-delay: 5s !important;
+}
+
+/* Animazioni */
+@keyframes scomparsa {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes comparsa {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
