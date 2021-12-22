@@ -8,6 +8,7 @@ let num = 0;
 let userNumArr = [];
 let userNum = 0;
 
+console.log("Genera numeri random...");
 while (numArr.length<5) {
   let doppione = false;
   num = Math.floor(Math.random() * 98) + 1;
@@ -27,15 +28,12 @@ while (numArr.length<5) {
 
 numbers.innerHTML += numArr;
 
-console.log("Numeri random: " + numArr);
-
-// Memory
-
 setTimeout(function() {
 
+  console.log("Chiede all'utente di inserire i numeri...");
   while (userNumArr.length<5) {
     let doppione = false;
-    userNum = prompt("Quali erano i numeri?");  
+    userNum = parseInt(prompt("Quali erano i numeri?"));  
     console.log(userNum);
   
     for (let i=0; i<userNumArr.length; i++) {
@@ -51,6 +49,36 @@ setTimeout(function() {
     }
   } 
 
-  console.log("Numeri inseriti dall'utente: " + userNumArr);
+  check();
+}, 31000);
 
-}, 2000);
+function check() {
+  console.log("----------------------------------------------");
+  console.log("Numeri random: " + numArr);
+  console.log("Numeri inseriti dall'utente: " + userNumArr);
+  console.log("----------------------------------------------");
+  let corretto = true;
+  let numIndovinati = [];
+  for (i=0; i<numArr.length; i++) {
+    if (numArr.includes(userNumArr[i])) {
+      corretto = true;
+      console.log(corretto);
+      numIndovinati.push(userNumArr[i]);    }
+    else {
+      corretto = false;
+      console.log(corretto);
+    }
+  }
+  alert("Hai indovinato " + numIndovinati.length + " numeri!");
+
+  if (numIndovinati.length>0) {
+    alert("I numeri indovinati sono " + numIndovinati);
+    if (numIndovinati.length<=4) {
+      alert("Non male");
+    } else if (numIndovinati.length==5) {
+      alert("Che king!");
+    }
+  } else {
+    alert("Mammamia fai schifo!");
+  }
+}

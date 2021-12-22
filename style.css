@@ -25,11 +25,11 @@ body {
   text-align: center;
 }
 
-#text div {
+.text div {
   margin: 50px auto;
   transform: translateY(50px);
   animation: scomparsa 0.5s linear forwards;
-  animation-delay: 1.5s;
+  animation-delay: 30s;
 }
 
 #numbers {
@@ -37,11 +37,11 @@ body {
   font-weight: bold;
 }
 
-#memory {
+.memory {
   opacity: 0;
   transform: translateY(-100px) !important;
   animation: comparsa 0.5s linear forwards !important;
-  animation-delay: 2s !important;
+  animation-delay: 30.5s !important;
 }
 
 /* Animazioni */
@@ -62,3 +62,4 @@ body {
     opacity: 1;
   }
 }
+
