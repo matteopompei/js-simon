@@ -50,7 +50,7 @@ setTimeout(function() {
   } 
 
   check();
-}, 3500);
+}, 31000);
 
 function check() {
   console.log("----------------------------------------------");

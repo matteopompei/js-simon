@@ -55,7 +55,7 @@ body {
 
 #front div:first-child, #numbers {
   animation: scomparsa 0.5s linear forwards;
-  animation-delay: 2s;
+  animation-delay: 30s;
 }
 
 #back {
