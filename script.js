@@ -50,7 +50,7 @@ setTimeout(function() {
   } 
 
   check();
-}, 31000);
+}, 3500);
 
 function check() {
   console.log("----------------------------------------------");
@@ -69,16 +69,26 @@ function check() {
       console.log(corretto);
     }
   }
-  alert("Hai indovinato " + numIndovinati.length + " numeri!");
+
+  document.getElementById("content").classList.add("turn");
+  // document.getElementById("content").classList.add("turn");
+  // alert("Hai indovinato " + numIndovinati.length + " numeri!");
+  const opinion = document.getElementById("opinion")
+  const guessed = document.getElementById("guessed")
 
   if (numIndovinati.length>0) {
-    alert("I numeri indovinati sono " + numIndovinati);
+    guessed.innerHTML = numIndovinati;
+
     if (numIndovinati.length<=4) {
-      alert("Non male");
+      opinion.classList.add("ok");
+      opinion.innerHTML = "Ne hai ricordati " + numIndovinati.length;
     } else if (numIndovinati.length==5) {
-      alert("Che king!");
+    guessed.classList.add("king");
+    opinion.classList.add("king");
+      opinion.innerHTML = "Che king! Hai indovinato tutti i numeri!";
     }
   } else {
-    alert("Mammamia fai schifo!");
+    opinion.classList.add("bad");
+    opinion.innerHTML = "Mammamia fai schifo!<br>Non ne hai azzeccato neanche uno!";
   }
 }

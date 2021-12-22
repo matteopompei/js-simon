@@ -19,32 +19,98 @@ body {
 }
 
 #container {
-  padding: 50px;
+  width: 950px;
+  height: 350px;
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+#content {
+  position: relative;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(0deg, hsl(0, 0%, 80%) 0%, hsl(0, 0%, 85%) 100%);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
   text-align: center;
 }
 
-.text div {
-  margin: 50px auto;
-  transform: translateY(50px);
-  animation: scomparsa 0.5s linear forwards;
-  animation-delay: 30s;
+.turn {
+  transform: rotateY(180deg);
 }
 
-#numbers {
+#front, #back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#front div:first-child, #numbers {
+  animation: scomparsa 0.5s linear forwards;
+  animation-delay: 2s;
+}
+
+#back {
+  transform: rotateY(180deg);
+}
+
+#numbers, #guessed {
   font-size: 4rem;
   font-weight: bold;
 }
 
-.memory {
-  opacity: 0;
-  transform: translateY(-100px) !important;
-  animation: comparsa 0.5s linear forwards !important;
-  animation-delay: 30.5s !important;
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40px, -47px);
+  font-size: 5rem;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  opacity: 0 !important;
+  animation: comparsa 0.5s linear forwards;
+  animation-delay: 2;
+}
+
+#loading i {
+  animation: attesa 1s linear infinite;
+}
+
+/* Risultati */
+.bad, .ok, .king {
+  font-weight: bold;
+}
+
+.bad {
+  color: #ff3737;
+}
+
+.ok {
+  color: #4eff37;
+}
+
+.king {
+  color: #d4af37;
+  text-shadow: 0 0 5px #ff0;
 }
 
 /* Animazioni */
+@keyframes attesa {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 @keyframes scomparsa {
   from {
     opacity: 1;
@@ -62,4 +128,3 @@ body {
     opacity: 1;
   }
 }
-
