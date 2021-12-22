@@ -69,10 +69,9 @@ function check() {
       console.log(corretto);
     }
   }
-
+  const body = document.getElementsByTagName("body")[0];
+  document.getElementById("loading").classList.add("hidden");
   document.getElementById("content").classList.add("turn");
-  // document.getElementById("content").classList.add("turn");
-  // alert("Hai indovinato " + numIndovinati.length + " numeri!");
   const opinion = document.getElementById("opinion")
   const guessed = document.getElementById("guessed")
 
@@ -83,12 +82,14 @@ function check() {
       opinion.classList.add("ok");
       opinion.innerHTML = "Ne hai ricordati " + numIndovinati.length;
     } else if (numIndovinati.length==5) {
+    body.classList.add("neon-king");
     guessed.classList.add("king");
     opinion.classList.add("king");
-      opinion.innerHTML = "Che king! Hai indovinato tutti i numeri!";
+      opinion.innerHTML = "Che king! Li hai ricordati tutti!";
     }
   } else {
     opinion.classList.add("bad");
+    body.classList.add("neon-bad");
     opinion.innerHTML = "Mammamia fai schifo!<br>Non ne hai azzeccato neanche uno!";
   }
 }
